@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useSelector } from "react-redux"
 import CreatePostCard from '../components/CreatePostCard'
 import Header from '../components/Header'
-import TimeLine from '../components/TimeLine'
+import TimeLine from '../components/Feed'
 import { RootState } from "../redux/app/store"
 
 const Home: NextPage = () => {
