@@ -1,16 +1,14 @@
+import Link from "next/link"
 import React, { useState } from "react"
-import { RootState } from "../redux/app/store"
-import { useSelector, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 import { setUsername } from "../redux/app/slices/usernameSlice"
 
 function LoginCard() {
   const [inputValue, setInputValue] = useState("")
-  const userName = useSelector((state: RootState) => state.username.value)
   const dispatch = useDispatch()
 
   function login(e: React.FormEvent) {
-    e.preventDefault()
-    dispatch(setUsername(inputValue))
+    e.preventDefault()    
     clearField()
   }
 
@@ -39,18 +37,27 @@ function LoginCard() {
           <input
             className="w-full outline-none border border-neutral-400 rounded mt-2 text-xs pl-1 py-[3px]"
             name="username"
+            id="username"
             placeholder="John doe"
+            type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
           />
 
-          <button
-            className="self-end mt-4 bg-black text-white font-bold text-xs px-5 py-1 disabled:bg-neutral-300"
-            type="submit"
-            disabled={!inputValue}
-          >
-            ENTER
-          </button>
+          <Link href="/dashboard">
+            <a className="self-end">
+              <button
+                className="mt-4 bg-black text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"            
+                type="submit"
+                disabled={!inputValue}
+                onClick={()=> {
+                  dispatch(setUsername(inputValue))
+                }}
+              >
+                ENTER
+              </button>
+            </a>
+          </Link>
         </form>
       </div>
     </div >

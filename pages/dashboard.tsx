@@ -1,7 +1,15 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Link from 'next/link'
+import { useSelector } from "react-redux"
+import CreatePostCard from '../components/CreatePostCard'
+import Header from '../components/Header'
+import TimeLine from '../components/TimeLine'
+import { RootState } from "../redux/app/store"
 
 const Home: NextPage = () => {
+  const userName = useSelector((state: RootState) => state.username.value)
+
   return (
     <>
       <Head>
@@ -10,9 +18,11 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className='font-roboto font-bold text-xl'>
-        Dashboard
-      </h1>
+      <Header />
+
+      <CreatePostCard />
+
+      <TimeLine />
     </>
   )
 }
