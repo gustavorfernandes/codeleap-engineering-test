@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import LoginCard from '../components/LoginCard'
 
 const Home: NextPage = () => {
   return (
@@ -11,7 +10,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-     <LoginCard />
+      <h1 className='font-roboto font-bold text-xl'>
+        Dashboard
+      </h1>
     </>
   )
 }
