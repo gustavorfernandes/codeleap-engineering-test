@@ -1,14 +1,18 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Link from 'next/link'
 import { useSelector } from "react-redux"
 import CreatePostCard from '../components/CreatePostCard'
 import Header from '../components/Header'
 import TimeLine from '../components/Feed'
 import { RootState } from "../redux/app/store"
+import { useEffect } from 'react'
 
 const Home: NextPage = () => {
   const userName = useSelector((state: RootState) => state.username.value)
+
+  useEffect(()=> {
+    
+  })
 
   return (
     <>

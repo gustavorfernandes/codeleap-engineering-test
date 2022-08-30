@@ -17,7 +17,7 @@ function LoginCard() {
   }
 
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
+    <div className="w-screen h-screen bg-neutral-100 flex items-center justify-center">
       <div className="w-11/12 bg-white border border-neutral-200 p-4">
         <form
           className="flex flex-col justify-center font-roboto "

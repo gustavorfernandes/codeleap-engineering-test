@@ -1,22 +1,25 @@
 
 import { useState } from "react"
-import { useDispatch } from "react-redux"
-import { setPostTitle } from "../redux/app/slices/postTitleSlice"
-import { setPostContent } from "../redux/app/slices/postContentSlice"
+import { useSelector, useDispatch } from "react-redux"
+import createPost from "../actions/createPost"
+import getPosts from "../actions/getPosts"
+import { RootState } from "../redux/app/store"
 
 function CreatePostCard() {
-  const [title, setTitle] = useState("")
-  const [content, setContent] = useState("")
+  const [inputTitle, setInputTitle] = useState("")
+  const [inputContent, setInputContent] = useState("")
+  const username = useSelector((state: RootState) => state.username.value)
+  
   const dispatch = useDispatch()
 
-  function insertPost(e: React.FormEvent) {
+  function submitForm(e: React.FormEvent) {
     e.preventDefault()
     clearFields()
   }
 
   function clearFields() {
-    setTitle("")
-    setContent("")
+    setInputTitle("")
+    setInputContent("")
   }
 
   return (
@@ -24,7 +27,7 @@ function CreatePostCard() {
       <form
         className="w-10/12 border rounded-sm border-neutral-300 flex flex-col py-3 px-4 font-roboto"
         onSubmit={(e: React.FormEvent) => {
-          insertPost(e)
+          submitForm(e)
         }}
       >
         <h1 className="font-bold text-sm mb-3">
@@ -42,8 +45,10 @@ function CreatePostCard() {
           id="title"
           placeholder="Hello world"
           type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={inputTitle}
+          onChange={(e) => {            
+            setInputTitle(e.target.value)            
+          }}
         />
         <label
           className="text-xs mb-1"
@@ -52,20 +57,23 @@ function CreatePostCard() {
           Content
         </label>
         <textarea
-          className="w-full h-16 text-xs outline-none border border-neutral-400 rounded py-1 px-2 mb-4  resize-none"
+          className="w-full text-xs outline-none border border-neutral-400 rounded py-1 px-2 mb-4 resize-none"
           name="content"
           id="content"
+          rows={5}
           placeholder="Content here"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
+          value={inputContent}
+          onChange={(e) => {
+            setInputContent(`${e.target.value}`)           
+          }}
         />
         <button
           className="self-end my-2 bg-black text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"
           type="submit"
-          disabled={!title || !content}
-          onClick={() => {
-            setPostTitle(title)
-            setPostContent(content)
+          disabled={!inputTitle || !inputContent}
+          onClick={() => {            
+            createPost(username, inputTitle, inputContent)
+            getPosts()
           }}
         >
           CREATE

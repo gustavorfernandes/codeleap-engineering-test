@@ -1,14 +1,25 @@
 import PostCard from "./PostCard"
-import { posts } from "../utils/data.json"
+import getPosts from "../actions/getPosts"
+import { useEffect, useState } from "react"
 
-function Feed() {  
+function Feed() {
+  const [postList, setPostList] = useState([])
+
+  useEffect(() => {
+    getPosts().then((res) => {
+      setPostList(res)
+    })
+  }, [])
+
   return (
-    <div className="w-screen bg-white flex flex-col items-center">        
-      {posts &&
-        posts.map((post) => (
-          <PostCard key={post.id} id={post.id} title={post.title} content={post.content} author={post.author} />
-        ))}
-    </div>
+    <>
+      <div className="w-screen bg-white flex flex-col items-center">
+        {postList &&
+          postList.map((post: any) => (
+            <PostCard key={post.id} title={post.title} created_datetime={post.created_datetime} content={post.content} username={post.username} />
+          ))}
+      </div>
+    </>
   )
 }
 
