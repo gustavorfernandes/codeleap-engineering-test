@@ -1,4 +1,25 @@
 {
-  "posts": [    
+  "posts": [
+    {
+      "username": "Gustavo",
+      "created_datetime": "2022-08-31T16:50:31.080Z",
+      "title": "Teste 01",
+      "content": "Conteúdo\n\ndo \n\npost.",
+      "id": 1
+    },
+    {
+      "username": "Lia",
+      "created_datetime": "2022-08-31T16:56:12.057Z",
+      "title": "Teste 02",
+      "content": "Post da Lia",
+      "id": 2
+    },
+    {
+      "username": "Gustavo",
+      "created_datetime": "2022-08-31T17:04:44.393Z",
+      "title": "Teste 03",
+      "content": "lalala",
+      "id": 3
+    }
   ]
 }
