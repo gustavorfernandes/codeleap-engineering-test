@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import createPost from "../actions/createPost"
+import { setPostList } from "../redux/app/slices/postListSlice"
 import getPosts from "../actions/getPosts"
 import { RootState } from "../redux/app/store"
 
@@ -68,12 +69,14 @@ function CreatePostCard() {
           }}
         />
         <button
-          className="self-end my-2 bg-black text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"
+          className="self-end my-2 bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"
           type="submit"
           disabled={!inputTitle || !inputContent}
           onClick={() => {            
             createPost(username, inputTitle, inputContent)
-            getPosts()
+            getPosts().then((res) => {
+              dispatch(setPostList(res))
+            })
           }}
         >
           CREATE

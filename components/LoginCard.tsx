@@ -47,7 +47,7 @@ function LoginCard() {
           <Link href="/dashboard">
             <a className="self-end">
               <button
-                className="mt-4 bg-black text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"            
+                className="mt-4 bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"            
                 type="submit"
                 disabled={!inputValue}
                 onClick={()=> {

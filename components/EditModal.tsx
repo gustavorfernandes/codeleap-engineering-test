@@ -1,17 +1,21 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import editPost from "../actions/editPost"
 import { setEditModal } from "../redux/app/slices/editModalSlice"
+import { setPostList } from "../redux/app/slices/postListSlice"
+import getPosts from "../actions/getPosts"
+import { RootState } from "../redux/app/store"
 
 function EditModal(props: any) {
   const [inputTitle, setInputTitle] = useState("")
   const [inputContent, setInputContent] = useState("")
-  
+  const postID = useSelector((state: RootState) => state.postID.value)  
+
   const dispatch = useDispatch()
 
   function submitForm(e: React.FormEvent) {
     e.preventDefault()
-  } 
+  }
 
   return (
     <div className="w-full flex flex-col">
@@ -23,7 +27,7 @@ function EditModal(props: any) {
         onSubmit={(e: React.FormEvent) => {
           submitForm(e)
         }}
-      >       
+      >
         <label
           className="text-xs mb-1"
           htmlFor="title"
@@ -37,8 +41,8 @@ function EditModal(props: any) {
           placeholder="Hello world"
           type="text"
           value={inputTitle}
-          onChange={(e) => {            
-            setInputTitle(e.target.value)            
+          onChange={(e) => {
+            setInputTitle(e.target.value)
           }}
         />
         <label
@@ -55,16 +59,19 @@ function EditModal(props: any) {
           placeholder="Content here"
           value={inputContent}
           onChange={(e) => {
-            setInputContent(`${e.target.value}`)           
+            setInputContent(`${e.target.value}`)
           }}
         />
         <button
-          className="self-end my-2 bg-black text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"
+          className="self-end my-2 bg-black hover:bg-neutral-800 transition-all  text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"
           type="submit"
           disabled={!inputTitle || !inputContent}
           onClick={() => {
             dispatch(setEditModal(false))
-            editPost(props.postID, inputTitle, inputContent)
+            editPost(postID, inputTitle, inputContent)
+            getPosts().then((res) => {
+              dispatch(setPostList(res))
+            })
           }}
         >
           SAVE
