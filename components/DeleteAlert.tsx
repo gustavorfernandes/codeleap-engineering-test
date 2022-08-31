@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux"
+import deletePost from "../actions/deletePost"
 import { setDeleteAlert } from "../redux/app/slices/deleteAlertSlice"
 
-function DeleteAlert() {
+function DeleteAlert(props: any) {
   const dispatch = useDispatch()  
   
   return (
@@ -20,6 +21,10 @@ function DeleteAlert() {
         </button>
         <button
           className="text-xs h-[22px] w-16 border border-black font-bold"
+          onClick={() => {
+            dispatch(setDeleteAlert(false))
+            deletePost(props.postID)
+          }}
         >
           OK
         </button>

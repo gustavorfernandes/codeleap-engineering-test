@@ -1,23 +1,17 @@
 import { useState } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../redux/app/store"
+import { useDispatch } from "react-redux"
+import editPost from "../actions/editPost"
+import { setEditModal } from "../redux/app/slices/editModalSlice"
 
-function EditModal() {
+function EditModal(props: any) {
   const [inputTitle, setInputTitle] = useState("")
   const [inputContent, setInputContent] = useState("")
-  const username = useSelector((state: RootState) => state.username.value)
   
   const dispatch = useDispatch()
 
   function submitForm(e: React.FormEvent) {
     e.preventDefault()
-    clearFields()
-  }
-
-  function clearFields() {
-    setInputTitle("")
-    setInputContent("")
-  }
+  } 
 
   return (
     <div className="w-full flex flex-col">
@@ -68,9 +62,9 @@ function EditModal() {
           className="self-end my-2 bg-black text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"
           type="submit"
           disabled={!inputTitle || !inputContent}
-          onClick={() => {            
-            
-            
+          onClick={() => {
+            dispatch(setEditModal(false))
+            editPost(props.postID, inputTitle, inputContent)
           }}
         >
           SAVE

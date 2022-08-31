@@ -3,7 +3,6 @@ import { IPost } from "../types/IPost"
 import { formatDistanceToNow } from "date-fns"
 import { useDispatch, useSelector } from "react-redux"
 import { RootState } from "../redux/app/store"
-import { useState } from "react"
 import DeleteAlert from "./DeleteAlert"
 import { AnimatePresence, motion } from "framer-motion"
 import EditModal from "./EditModal"
@@ -70,7 +69,7 @@ function PostCard(post: IPost) {
           <>
             <div
               id="overlay"
-              className="fixed z-10 inset-0 bg-neutral-400 opacity-70"
+              className="fixed z-10 inset-0 bg-neutral-400 opacity-60"
               onClick={() => {
                 dispatch(setDeleteAlert(false))
               }}
@@ -82,7 +81,7 @@ function PostCard(post: IPost) {
               exit={{ opacity: 0, scale: 0.5 }}
               transition={{ duration: 0.3 }}
             >
-              <DeleteAlert />
+              <DeleteAlert postID={post.id} />
             </motion.div>
           </>
         }
@@ -91,7 +90,7 @@ function PostCard(post: IPost) {
           <>
             <div
               id="overlay"
-              className="fixed z-10 inset-0 bg-neutral-400 opacity-70"
+              className="fixed z-10 inset-0 bg-neutral-400 opacity-60"
               onClick={() => {
                 dispatch(setEditModal(false))
               }}
@@ -103,7 +102,7 @@ function PostCard(post: IPost) {
               exit={{ opacity: 0, scale: 0.5 }}
               transition={{ duration: 0.3 }}
             >
-              <EditModal />
+              <EditModal postID={post.id} />
             </motion.div>
           </>
         }

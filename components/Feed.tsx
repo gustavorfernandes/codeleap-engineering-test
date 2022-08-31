@@ -1,6 +1,7 @@
 import PostCard from "./PostCard"
 import getPosts from "../actions/getPosts"
 import { useEffect, useState } from "react"
+import { IPost } from "../types/IPost"
 
 function Feed() {
   const [postList, setPostList] = useState([])
@@ -15,8 +16,8 @@ function Feed() {
     <>
       <div className="w-screen bg-white flex flex-col items-center">
         {postList &&
-          postList.map((post: any) => (
-            <PostCard key={post.id} title={post.title} created_datetime={post.created_datetime} content={post.content} username={post.username} />
+          postList.map((post: IPost) => (
+            <PostCard key={post.id} id={post.id} title={post.title} created_datetime={post.created_datetime} content={post.content} username={post.username} />
           ))}
       </div>
     </>
