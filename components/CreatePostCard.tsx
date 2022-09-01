@@ -69,7 +69,7 @@ function CreatePostCard() {
           }}
         />
         <button
-          className="self-end my-2 bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"
+          className="self-end my-2 bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs px-5 py-1 disabled:bg-neutral-300"
           type="submit"
           disabled={!inputTitle || !inputContent}
           onClick={() => {            

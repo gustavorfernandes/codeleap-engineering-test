@@ -7,21 +7,24 @@ import { orderByDate, setPostList } from "../redux/app/slices/postListSlice"
 import EditModal from "./EditModal"
 import DeleteAlert from "./DeleteAlert"
 import getPosts from "../actions/getPosts"
+import { useEffect } from "react"
 
 function Feed() {
   const dispatch = useDispatch()
-  
-  getPosts().then((res) => {
-    const data = res.results
-    dispatch(setPostList(data))
+
+  useEffect(() => {
+    getPosts().then((res) => {
+      const data = res.results
+      dispatch(setPostList(data))
+    })
+    dispatch(orderByDate())    
   })
-  dispatch(orderByDate())
-  
+
   const postList = useSelector((state: RootState) => state.postList.value)
 
   return (
     <>
-      <div className="w-screen h-[50vh] overflow-y-scroll scrollbar bg-white flex flex-col items-center">
+      <div className="w-screen bg-white flex flex-col items-center">
         {postList &&
           postList.map((post: IPost) => (
             <>

@@ -17,7 +17,7 @@ function PostCard(post: IPost) {
 
   return (
     <>
-      <div className={`w-10/12 flex flex-col font-roboto border border-neutral-300 mb-4`}>
+      <div className={`w-10/12 flex flex-col font-roboto border border-neutral-300 mb-8`}>
         <div className="w-full flex items-center justify-between bg-black py-2 px-4 text-white font-bold text-sm">
           <h2>
             {post.title}
@@ -38,7 +38,7 @@ function PostCard(post: IPost) {
             <button
               onClick={() => {
                 dispatch(setEditModal(true))
-                dispatch(setPostID(post.id))                
+                dispatch(setPostID(post.id))
                 dispatch(setPostTitle(post.title))
                 dispatch(setPostContent(post.content))
               }}
@@ -64,7 +64,7 @@ function PostCard(post: IPost) {
             {post.content}
           </div>
         </div>
-      </div>      
+      </div>
     </>
   )
 }

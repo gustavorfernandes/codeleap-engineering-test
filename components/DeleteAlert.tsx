@@ -1,5 +1,5 @@
 import { Dialog, Transition } from "@headlessui/react"
-import { Fragment } from "react"
+import { Fragment, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import deletePost from "../actions/deletePost"
 import getPosts from "../actions/getPosts"
@@ -12,6 +12,16 @@ function DeleteAlert() {
 
   const postID = useSelector((state: RootState) => state.postID.value)
   const deleteAlert = useSelector((state: RootState) => state.deleteAlert.value)
+  const editModal = useSelector((state: RootState) => state.editModal.value)
+
+  useEffect(() => {
+    return function cleanup() {
+      if (!deleteAlert && !editModal) {
+        document.documentElement.style.overflowY = 'auto';
+        document.documentElement.style.paddingRight = '0px';        
+      }
+    }
+  })
 
   return (
     <Transition
@@ -35,15 +45,12 @@ function DeleteAlert() {
           leaveTo="opacity-0"
         >
           <div
-            id="overlay"
-            className="fixed inset-0 bg-neutral-400 bg-opacity-30"
-            onClick={() => {
-              dispatch(setDeleteAlert(false))
-            }}
+            className="fixed inset-0 bg-neutral-400/10"
+            aria-hidden="true"
           />
         </Transition.Child>
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+        <div className="fixed inset-0">
+          <div className="fixed inset-0 flex items-center justify-center p-4 text-center">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -53,7 +60,7 @@ function DeleteAlert() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-10/12 max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all absolute top-20 font-roboto">
+              <Dialog.Panel className="w-10/12 max-w-md transform bg-white p-6 text-left align-middle shadow-xl transition-all absolute top-20 font-roboto">
                 <Dialog.Title
                   as="h3"
                   className="text-xs mb-6"
@@ -91,7 +98,7 @@ function DeleteAlert() {
           </div>
         </div>
       </Dialog>
-    </Transition>
+    </Transition >
   )
 }
 

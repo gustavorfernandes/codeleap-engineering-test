@@ -35,7 +35,7 @@ function LoginCard() {
             Please enter your username
           </label>
           <input
-            className="w-full outline-none border border-neutral-400 rounded mt-2 text-xs pl-1 py-[3px]"
+            className="w-full outline-none border border-neutral-400 rounded mt-2 mb-4 text-xs pl-1 py-[3px]"
             name="username"
             id="username"
             placeholder="John doe"
@@ -47,7 +47,7 @@ function LoginCard() {
           <Link href="/dashboard">
             <a className="self-end">
               <button
-                className="mt-4 bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"            
+                className="bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs px-5 py-1 disabled:bg-neutral-300"            
                 type="submit"
                 disabled={!inputValue}
                 onClick={()=> {

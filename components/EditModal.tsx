@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Dialog, Transition } from "@headlessui/react"
-import { Fragment } from "react"
+import { Fragment, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import editPost from "../actions/editPost"
 import getPosts from "../actions/getPosts"
@@ -13,6 +13,7 @@ import { RootState } from "../redux/app/store"
 function EditModal() {
   const dispatch = useDispatch()
 
+  const deleteAlert = useSelector((state: RootState) => state.deleteAlert.value)
   const editModal = useSelector((state: RootState) => state.editModal.value)
   const postTitle = useSelector((state: RootState) => state.postTitle.value)
   const postContent = useSelector((state: RootState) => state.postContent.value)
@@ -21,6 +22,15 @@ function EditModal() {
   function submitForm(e: React.FormEvent) {
     e.preventDefault()
   }
+
+  useEffect(() => {
+    return function cleanup() {
+      if (!deleteAlert && !editModal) {
+        document.documentElement.style.overflowY = 'auto';
+        document.documentElement.style.paddingRight = '0px';        
+      }
+    }
+  })
 
   return (
     <Transition
@@ -45,10 +55,8 @@ function EditModal() {
         >
           <div
             id="overlay"
-            className="fixed inset-0 bg-neutral-400 bg-opacity-30"
-            onClick={() => {
-              dispatch(setEditModal(false))
-            }}
+            className="fixed inset-0 bg-neutral-400/10"
+            aria-hidden="true"
           />
         </Transition.Child>
         <div className="fixed inset-0 overflow-y-auto">
