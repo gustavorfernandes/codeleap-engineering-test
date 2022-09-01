@@ -10,6 +10,7 @@
     "api": "json-server --watch db.json -p 8080"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.6",
     "@reduxjs/toolkit": "^1.8.5",
     "axios": "^0.27.2",
     "date-fns": "^2.29.2",

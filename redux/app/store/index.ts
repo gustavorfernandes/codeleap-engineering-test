@@ -4,6 +4,8 @@ import editModalReducer from "../slices/editModalSlice"
 import deleteAlertReducer from "../slices/deleteAlertSlice"
 import postListReducer from "../slices/postListSlice"
 import postIDReducer from "../slices/postIDSlice"
+import postTitleReducer from "../slices/postTitleSlice"
+import postContentReducer from "../slices/postContentSlice"
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +14,8 @@ export const store = configureStore({
     deleteAlert: deleteAlertReducer,
     postList: postListReducer,
     postID: postIDReducer,
+    postTitle: postTitleReducer,
+    postContent: postContentReducer,
   },
 });
 

@@ -6,10 +6,16 @@ import { RootState } from "../redux/app/store"
 import { setEditModal } from "../redux/app/slices/editModalSlice"
 import { setDeleteAlert } from "../redux/app/slices/deleteAlertSlice"
 import { setPostID } from "../redux/app/slices/postIDSlice"
+import { setPostTitle } from "../redux/app/slices/postTitleSlice"
+import { setPostContent } from "../redux/app/slices/postContentSlice"
 
 function PostCard(post: IPost) {
   const datePost = new Date(post.created_datetime)
   const username = useSelector((state: RootState) => state.username.value)
+
+  const postID = useSelector((state: RootState) => state.postID.value)
+  const postTitle = useSelector((state: RootState) => state.postTitle.value)
+  const postContent = useSelector((state: RootState) => state.postContent.value)
 
   const dispatch = useDispatch()
 
@@ -36,7 +42,9 @@ function PostCard(post: IPost) {
             <button
               onClick={() => {
                 dispatch(setEditModal(true))
-                dispatch(setPostID(post.id))
+                dispatch(setPostID(post.id))                
+                dispatch(setPostTitle(post.title))
+                dispatch(setPostContent(post.content))
               }}
             >
               <img
