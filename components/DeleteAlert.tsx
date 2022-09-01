@@ -60,17 +60,17 @@ function DeleteAlert() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-10/12 max-w-md transform bg-white p-6 text-left align-middle shadow-xl transition-all absolute top-20 font-roboto">
+              <Dialog.Panel className="w-10/12 max-w-[20rem] sm:max-w-[30rem] md:max-w-[41.5rem] transform bg-white p-4 sm:p-6 md:p-8 text-left align-middle shadow-xl transition-all absolute top-[5.625rem] sm:top-[6.625rem] font-roboto">
                 <Dialog.Title
                   as="h3"
-                  className="text-xs mb-6"
+                  className="text-xs sm:text-lg md:text-[22px] mb-8 sm:mb-12"
                 >
                   Are you sure you want to delete this item?
                 </Dialog.Title>
                 <div className="flex items-center justify-end gap-4">
                   <button
                     type="button"
-                    className="text-xs h-[22px] w-16 border border-neutral-700 text-neutral-700 hover:border-black hover:text-black transition-all font-bold"
+                    className="text-xs sm:text-sm md:text-base h-[1.375rem] sm:h-[1.75rem] md:h-[2.5rem] w-16 sm:w-[5rem] md:w-[7rem] border border-neutral-700 text-neutral-700 hover:border-black hover:text-black transition-all font-bold"
                     onClick={() => {
                       dispatch(setDeleteAlert(false))
                     }}
@@ -78,7 +78,7 @@ function DeleteAlert() {
                     Cancel
                   </button>
                   <button
-                    className="text-xs h-[22px] w-16 border  border-neutral-700 text-neutral-700 hover:border-black hover:text-black transition-all font-bold"
+                    className="text-xs sm:text-sm md:text-base h-[22px] sm:h-[1.75rem] md:h-[2.5rem] sm:w-[5rem] md:w-[7rem] w-16 border border-neutral-700 text-neutral-700 hover:border-black hover:text-black transition-all font-bold"
                     type="submit"
                     onClick={() => {
                       dispatch(setDeleteAlert(false))

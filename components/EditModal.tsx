@@ -70,10 +70,10 @@ function EditModal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-11/12 max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all font-roboto">
+              <Dialog.Panel className="w-11/12 max-w-[45.625rem] transform overflow-hidden bg-white p-4 sm:p-6 md:p-8 text-left align-middle shadow-xl transition-all font-roboto">
                 <Dialog.Title
                   as="h3"
-                  className="font-bold text-sm mb-4"
+                  className="font-bold text-sm sm:text-xl md:text-[22px] mb-4"
                 >
                   Edit item
                 </Dialog.Title>
@@ -84,13 +84,13 @@ function EditModal() {
                   }}
                 >
                   <label
-                    className="text-xs mb-1"
+                    className="text-xs sm:text-sm md:text-base mb-1 sm:mb-2"
                     htmlFor="title"
                   >
                     Title
                   </label>
                   <input
-                    className="w-full text-xs outline-none border border-neutral-400 rounded py-1 px-2 mb-4"
+                    className="w-full text-xs sm:text-[13px] md:text-sm outline-none border border-neutral-400 rounded py-1 px-2 sm:px-3 mb-4"
                     name="title"
                     id="title"
                     placeholder="Hello world"
@@ -101,16 +101,16 @@ function EditModal() {
                     }}
                   />
                   <label
-                    className="text-xs mb-1"
+                    className="text-xs sm:text-sm md:text-base mb-1 sm:mb-2"
                     htmlFor="content"
                   >
                     Content
                   </label>
                   <textarea
-                    className="w-full text-xs outline-none border border-neutral-400 rounded py-1 px-2 mb-4 resize-none"
+                    className="w-full text-xs sm:text-[13px] md:text-sm outline-none border border-neutral-400 rounded py-1 px-2 sm:px-3 mb-4 resize-none"
                     name="content"
                     id="content"
-                    rows={3}
+                    rows={4}
                     placeholder="Content here"
                     value={postContent}
                     onChange={(e) => {
@@ -118,7 +118,7 @@ function EditModal() {
                     }}
                   />
                   <button
-                    className="self-end my-2 bg-black hover:bg-neutral-800 transition-all  text-white font-bold text-xs px-5 py-1  disabled:bg-neutral-300"
+                    className="self-end mt-2 sm:mt-4 md:mt-6 bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs sm:text-sm md:text-base px-5 sm:px-7 md:px-9 py-1 disabled:bg-neutral-300"
                     type="submit"
                     disabled={!postTitle || !postContent}
                     onClick={() => {

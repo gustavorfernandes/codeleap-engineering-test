@@ -24,7 +24,7 @@ function Feed() {
 
   return (
     <>
-      <div className="w-screen bg-white flex flex-col items-center">
+      <div className="w-screen max-w-[800px] bg-white flex flex-col items-center">
         {postList &&
           postList.map((post: IPost) => (
             <>

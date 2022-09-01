@@ -17,8 +17,8 @@ function PostCard(post: IPost) {
 
   return (
     <>
-      <div className={`w-10/12 flex flex-col font-roboto border border-neutral-300 mb-8`}>
-        <div className="w-full flex items-center justify-between bg-black py-2 px-4 text-white font-bold text-sm">
+      <div className="w-11/12 flex flex-col font-roboto border border-neutral-300 mb-8 sm:mb-10 md:mb-12">
+        <div className="w-full flex items-center justify-between bg-black py-2 px-4 sm:py-6 sm:px-8 sm:h-16 md:h-[4.375rem] text-white font-bold text-sm sm:text-xl md:text-[22px]">
           <h2>
             {post.title}
           </h2>
@@ -30,7 +30,7 @@ function PostCard(post: IPost) {
               }}
             >
               <img
-                className="w-[12px]"
+                className="w-[12px] sm:w-[15px] md:w-[17.5px]"
                 src="/images/delete-icon.png"
                 alt="Delete"
               />
@@ -44,23 +44,23 @@ function PostCard(post: IPost) {
               }}
             >
               <img
-                className="w-[18px]"
+                className="w-[18px] sm:w-[20.5px] md:w-[22.5px]"
                 src="/images/edit-icon.png"
                 alt="Edit"
               />
             </button>
           </div>
         </div>
-        <div className="w-full flex flex-col gap-3 p-3">
+        <div className="w-full flex flex-col gap-3 p-3 sm:p-6 md:p-8">
           <div className="w-full flex justify-between items-center">
-            <span className="font-bold text-xs text-neutral-400">
+            <span className="font-bold text-xs sm:text-base md:text-[18px] text-neutral-400 sm:mb-1">
               {`@${post.username}`}
             </span>
-            <span className="text-xs text-neutral-400">
+            <span className="text-xs sm:text-base md:text-[18px] text-neutral-400">
               {formatDistanceToNow(datePost, { addSuffix: true })}
             </span>
           </div>
-          <div className="text-xs whitespace-pre-wrap">
+          <div className="text-xs sm:text-base md:text-[18px] whitespace-pre-wrap">
             {post.content}
           </div>
         </div>
