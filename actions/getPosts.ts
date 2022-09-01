@@ -1,7 +1,7 @@
 import axios from "axios"
 
 async function getPosts() {  
-  const data = await axios.get("http://localhost:8080/posts/")
+  const data = await axios.get("https://dev.codeleap.co.uk/careers/")
     .then((response) => {
       return response.data
     })

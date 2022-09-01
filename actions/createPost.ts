@@ -1,7 +1,7 @@
 import axios from "axios"
 
 async function createPost(username: string, title: string, content: string) {
-  await axios.post("http://localhost:8080/posts/", {
+  await axios.post("https://dev.codeleap.co.uk/careers/", {
     username: username,
     created_datetime: new Date(),
     title: title,

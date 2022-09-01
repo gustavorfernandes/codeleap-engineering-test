@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import createPost from "../actions/createPost"
-import { setPostList } from "../redux/app/slices/postListSlice"
+import { orderByDate, setPostList } from "../redux/app/slices/postListSlice"
 import getPosts from "../actions/getPosts"
 import { RootState } from "../redux/app/store"
 
@@ -75,8 +75,10 @@ function CreatePostCard() {
           onClick={() => {            
             createPost(username, inputTitle, inputContent)
             getPosts().then((res) => {
-              dispatch(setPostList(res))
+              const data = res.results
+              dispatch(setPostList(data))
             })
+            dispatch(orderByDate())
           }}
         >
           CREATE

@@ -6,7 +6,7 @@ import editPost from "../actions/editPost"
 import getPosts from "../actions/getPosts"
 import { setEditModal } from "../redux/app/slices/editModalSlice"
 import { setPostContent } from "../redux/app/slices/postContentSlice"
-import { setPostList } from "../redux/app/slices/postListSlice"
+import { orderByDate, setPostList } from "../redux/app/slices/postListSlice"
 import { setPostTitle } from "../redux/app/slices/postTitleSlice"
 import { RootState } from "../redux/app/store"
 
@@ -117,8 +117,10 @@ function EditModal() {
                       dispatch(setEditModal(false))
                       editPost(postID, postTitle, postContent)
                       getPosts().then((res) => {
-                        dispatch(setPostList(res))
+                        const data = res.results
+                        dispatch(setPostList(data))
                       })
+                      dispatch(orderByDate())
                     }}
                   >
                     SAVE

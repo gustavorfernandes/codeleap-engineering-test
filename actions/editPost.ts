@@ -1,7 +1,7 @@
 import axios from "axios"
 
 async function editPost(postID: number, postTitle: string, postContent: string) {
-  await axios.patch(`http://localhost:8080/posts/${postID}/`, {
+  await axios.patch(`https://dev.codeleap.co.uk/careers/${postID}/`, {
     "title": postTitle,
     "content": postContent
   })

@@ -4,15 +4,15 @@ import { useDispatch, useSelector } from "react-redux"
 import deletePost from "../actions/deletePost"
 import getPosts from "../actions/getPosts"
 import { setDeleteAlert } from "../redux/app/slices/deleteAlertSlice"
-import { setPostList } from "../redux/app/slices/postListSlice"
+import { orderByDate, setPostList } from "../redux/app/slices/postListSlice"
 import { RootState } from "../redux/app/store"
 
 function DeleteAlert() {
   const dispatch = useDispatch()
-  
+
   const postID = useSelector((state: RootState) => state.postID.value)
-  const deleteAlert = useSelector((state: RootState) => state.deleteAlert.value) 
-    
+  const deleteAlert = useSelector((state: RootState) => state.deleteAlert.value)
+
   return (
     <Transition
       appear
@@ -72,12 +72,15 @@ function DeleteAlert() {
                   </button>
                   <button
                     className="text-xs h-[22px] w-16 border  border-neutral-700 text-neutral-700 hover:border-black hover:text-black transition-all font-bold"
+                    type="submit"
                     onClick={() => {
                       dispatch(setDeleteAlert(false))
                       deletePost(postID)
                       getPosts().then((res) => {
-                        dispatch(setPostList(res))
+                        const data = res.results
+                        dispatch(setPostList(data))
                       })
+                      dispatch(orderByDate())
                     }}
                   >
                     OK

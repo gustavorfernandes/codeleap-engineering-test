@@ -1,18 +1,26 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import CreatePostCard from '../components/CreatePostCard'
 import Header from '../components/Header'
-import TimeLine from '../components/Feed'
-import { RootState } from "../redux/app/store"
-import { useEffect } from 'react'
+import Feed from '../components/Feed'
+import getPosts from '../actions/getPosts'
+import { setPostList } from '../redux/app/slices/postListSlice'
 
-const Home: NextPage = () => {
-  const userName = useSelector((state: RootState) => state.username.value)
-
-  useEffect(()=> {
-    
+export async function getServerSideProps() {
+  const initialPostList = getPosts().then((res) => {
+    return res
   })
+  return {
+    props: initialPostList
+  }
+}
+
+const Home: NextPage = (props: any) => {
+  const data = props.results
+  const dispatch = useDispatch()
+
+  dispatch(setPostList(data))
 
   return (
     <>
@@ -26,7 +34,7 @@ const Home: NextPage = () => {
 
       <CreatePostCard />
 
-      <TimeLine />
+      <Feed />
     </>
   )
 }

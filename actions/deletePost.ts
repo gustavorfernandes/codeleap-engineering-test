@@ -1,7 +1,7 @@
 import axios from "axios"
 
 async function deletePost(postID: number) {
-  await axios.delete(`http://localhost:8080/posts/${postID}/`)
+  await axios.delete(`https://dev.codeleap.co.uk/careers/${postID}/`)
   .then(() => {
     console.log("Post deleted successfully")
   })

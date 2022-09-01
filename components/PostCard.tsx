@@ -13,10 +13,6 @@ function PostCard(post: IPost) {
   const datePost = new Date(post.created_datetime)
   const username = useSelector((state: RootState) => state.username.value)
 
-  const postID = useSelector((state: RootState) => state.postID.value)
-  const postTitle = useSelector((state: RootState) => state.postTitle.value)
-  const postContent = useSelector((state: RootState) => state.postContent.value)
-
   const dispatch = useDispatch()
 
   return (
