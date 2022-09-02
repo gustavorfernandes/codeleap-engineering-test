@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login card component The component must render correctly 1`] = `
+<div>
+  <div
+    class="w-screen h-screen bg-neutral-100 flex items-center justify-center"
+  >
+    <div
+      class="w-11/12 max-w-[20rem] sm:max-w-[25rem] md:max-w-[31.25rem] bg-white border border-neutral-200 p-4 sm:p-5 md:p-6"
+    >
+      <form
+        class="flex flex-col justify-center font-roboto"
+      >
+        <h2
+          class="font-bold mb-4 sm:mb-5 md:mb-6 sm:text-xl md:text-[22px]"
+        >
+          Welcome to CodeLeap network!
+        </h2>
+        <label
+          class="text-xs sm:text-sm md:text-base md:mb-1"
+          for="username"
+        >
+          Please enter your username
+        </label>
+        <input
+          class="w-full outline-none border border-neutral-400 rounded mt-2 mb-4 text-xs sm:text-[13px] md:text-sm pl-2 py-[3px]"
+          id="username"
+          name="username"
+          placeholder="John doe"
+          type="text"
+          value=""
+        />
+        <a
+          class="self-end"
+          href="/dashboard"
+        >
+          <button
+            class="bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs sm:text-sm md:text-base px-5 sm:px-7 py-1 disabled:bg-neutral-300"
+            disabled=""
+            type="submit"
+          >
+            ENTER
+          </button>
+        </a>
+      </form>
+    </div>
+  </div>
+</div>
+`;
