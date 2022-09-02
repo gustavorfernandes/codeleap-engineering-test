@@ -1,6 +1,6 @@
 import React from "react"
 import "@testing-library/jest-dom"
-import { render, screen } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import LoginCard from "../components/LoginCard"
 import { Provider } from "react-redux"
 import { store } from "../redux/app/store"
@@ -15,6 +15,9 @@ describe("Login card component", () => {
     const input = screen.getByPlaceholderText("John doe")
     const button = screen.getByRole("button")
     expect(input).toBeInTheDocument()
+    expect(button).toBeInTheDocument()
+
+    fireEvent.change(input, { target: { value: "" } })
     expect(button).toBeDisabled()
   })
 
@@ -23,7 +26,7 @@ describe("Login card component", () => {
       <Provider store={store} >
         <LoginCard />
       </Provider>
-    )    
-    expect(container).toMatchSnapshot()    
+    )
+    expect(container).toMatchSnapshot()
   })
 })

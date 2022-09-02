@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create post card component The component must render correctly 1`] = `
+<div>
+  <div
+    class="w-screen max-w-[800px] bg-white flex items-center justify-center py-6 sm:py-10 md:py-12"
+  >
+    <form
+      class="w-11/12 border rounded-sm border-neutral-300 flex flex-col p-4 sm:p-6 md:p-8 font-roboto"
+    >
+      <h1
+        class="font-bold text-sm sm:text-xl md:text-[22px] mb-3 sm:mb-5"
+      >
+        What's on your mind?
+      </h1>
+      <label
+        class="text-xs sm:text-sm md:text-base mb-1 sm:mb-2"
+        for="title"
+      >
+        Title
+      </label>
+      <input
+        class="w-full text-xs sm:text-[13px] md:text-sm outline-none border border-neutral-400 rounded py-1 px-2 mb-4"
+        id="title"
+        name="title"
+        placeholder="Hello world"
+        type="text"
+        value=""
+      />
+      <label
+        class="text-xs sm:text-sm md:text-base mb-1 sm:mb-2"
+        for="content"
+      >
+        Content
+      </label>
+      <textarea
+        class="w-full text-xs sm:text-[13px] md:text-sm outline-none border border-neutral-400 rounded py-1 px-2 mb-4 resize-none"
+        id="content"
+        name="content"
+        placeholder="Content here"
+        rows="4"
+      />
+      <button
+        class="self-end mt-4 sm:mt-6 mb-2 bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs sm:text-sm md:text-base px-5 sm:px-7 py-1 disabled:bg-neutral-300"
+        disabled=""
+        type="submit"
+      >
+        CREATE
+      </button>
+    </form>
+  </div>
+</div>
+`;
