@@ -1,6 +1,6 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import LoginCard from '../components/LoginCard'
+import type { NextPage } from "next"
+import Head from "next/head"
+import LoginCard from "../components/containers/LoginCard.container"
 
 const Home: NextPage = () => {
   return (

@@ -1,14 +1,11 @@
 import Link from "next/link"
 import React, { useState } from "react"
-import { useDispatch } from "react-redux"
-import { setUsername } from "../redux/app/slices/usernameSlice"
 
-function LoginCard() {
+function LoginCard({ setUsername }: any) {
   const [inputValue, setInputValue] = useState("")
-  const dispatch = useDispatch()
 
   function login(e: React.FormEvent) {
-    e.preventDefault()    
+    e.preventDefault()
     clearField()
   }
 
@@ -47,11 +44,11 @@ function LoginCard() {
           <Link href="/dashboard">
             <a className="self-end">
               <button
-                className="bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs sm:text-sm md:text-base px-5 sm:px-7 py-1 disabled:bg-neutral-300"            
+                className="bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs sm:text-sm md:text-base px-5 sm:px-7 py-1 disabled:bg-neutral-300"
                 type="submit"
                 disabled={!inputValue}
-                onClick={()=> {
-                  dispatch(setUsername(inputValue))
+                onClick={() => {
+                  setUsername(inputValue)
                 }}
               >
                 ENTER

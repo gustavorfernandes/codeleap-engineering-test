@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feed component The component must render correctly 1`] = `
+<div>
+  <div
+    class="w-screen max-w-[800px] bg-white flex flex-col items-center"
+  />
+</div>
+`;

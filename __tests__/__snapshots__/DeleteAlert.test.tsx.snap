@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Delete alert component The component must render correctly 1`] = `<div />`;
