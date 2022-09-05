@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Engineering Test
 
-## Getting Started
+<img src="https://codeleap.co.uk/static/838fbf40bc335c2ffd2ea5ee19ed3baa/cf9b5/codeleap_logo_white.png" width="400px">
 
-First, run the development server:
+Front-End challenge held to participate in the CodeLeap selection process.
+
+## Starting
+
+Access links:
+
+Application: 
 
 ```bash
-npm run dev
-# or
-yarn dev
+https://codeleap-engineering-test-gustavo-fernandes.vercel.app/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+API endpoints:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The data used is hosted at the following URL:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+https://dev.codeleap.co.uk/careers/
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## The challenge
 
-## Learn More
+The following features were requested for this challenge:
 
-To learn more about Next.js, take a look at the following resources:
+- Login screen with simple functionality that keeps the username stored in string format
+- Dashboard page where posts will be listed through API data consumption
+- Ability to create posts
+- Possibility to edit or delete the post if the user is compatible
+- List update automatically when a new post is created
+- Sort the list by the most recent on top
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Testing the project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Login screen
 
-## Deploy on Vercel
+On the login screen, the user will be able to enter their username. By clicking the enter button, the user will be taken to the dashboard page. If the input is empty, the enter button must be disabled.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Dashboard screen
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+On this screen, we have the post creation card and the feed with the API data, which should appear as soon as the page is loaded.
+
+## Creating a post
+
+In the post creation form, the user must write the title and content of the post, in their respective fields. If any of these fields is empty, the create button must be disabled. 
+
+By clicking on the create button, the list will be updated with the new post. If the user owns some of the posts, the icons for editing and deleting the post will appear.
+
+## Editing a post
+
+By clicking on the edit icon, a modal will be opened, with a form similar to the one for creating a post. The user will then be able to edit the post as desired and save by clicking the save button.
+
+## Deleting a post
+
+When clicking on the delete post icon, an alert will appear on the screen, asking the user if he really wants to delete the post. By clicking ok, the post will be deleted. By clicking cancel, the alert will be closed by returning to the main page.
