@@ -1,18 +1,16 @@
 import { Dialog, Transition } from "@headlessui/react"
 import { Fragment, useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
 import deletePost from "../actions/deletePost"
 import getPosts from "../actions/getPosts"
+import { useAppSelector, useAppDispatch } from "../redux/app/hooks"
 import { setDeleteAlert } from "../redux/app/slices/deleteAlertSlice"
 import { orderByDate, setPostList } from "../redux/app/slices/postListSlice"
-import { RootState } from "../redux/app/store"
 
 function DeleteAlert() {
-  const dispatch = useDispatch()
-
-  const postID = useSelector((state: RootState) => state.postID.value)
-  const deleteAlert = useSelector((state: RootState) => state.deleteAlert.value)
-  const editModal = useSelector((state: RootState) => state.editModal.value)
+  const dispatch = useAppDispatch()
+  const postID = useAppSelector((state) => state.postID.value)
+  const deleteAlert = useAppSelector((state) => state.deleteAlert.value)
+  const editModal = useAppSelector((state) => state.editModal.value)
 
   useEffect(() => {
     return function cleanup() {

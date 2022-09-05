@@ -1,23 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Dialog, Transition } from "@headlessui/react"
 import { Fragment, useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
 import editPost from "../actions/editPost"
 import getPosts from "../actions/getPosts"
+import { useAppSelector, useAppDispatch } from "../redux/app/hooks"
 import { setEditModal } from "../redux/app/slices/editModalSlice"
 import { setPostContent } from "../redux/app/slices/postContentSlice"
 import { orderByDate, setPostList } from "../redux/app/slices/postListSlice"
 import { setPostTitle } from "../redux/app/slices/postTitleSlice"
-import { RootState } from "../redux/app/store"
 
 function EditModal() {
-  const dispatch = useDispatch()
-
-  const deleteAlert = useSelector((state: RootState) => state.deleteAlert.value)
-  const editModal = useSelector((state: RootState) => state.editModal.value)
-  const postTitle = useSelector((state: RootState) => state.postTitle.value)
-  const postContent = useSelector((state: RootState) => state.postContent.value)
-  const postID = useSelector((state: RootState) => state.postID.value)
+  const dispatch = useAppDispatch()
+  const deleteAlert = useAppSelector((state) => state.deleteAlert.value)
+  const editModal = useAppSelector((state) => state.editModal.value)
+  const postTitle = useAppSelector((state) => state.postTitle.value)
+  const postContent = useAppSelector((state) => state.postContent.value)
+  const postID = useAppSelector((state) => state.postID.value)
 
   function submitForm(e: React.FormEvent) {
     e.preventDefault()

@@ -1,17 +1,14 @@
-
 import { useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
 import createPost from "../actions/createPost"
+import { useAppSelector, useAppDispatch } from "../redux/app/hooks"
 import { orderByDate, setPostList } from "../redux/app/slices/postListSlice"
 import getPosts from "../actions/getPosts"
-import { RootState } from "../redux/app/store"
 
 function CreatePostCard() {
   const [inputTitle, setInputTitle] = useState("")
   const [inputContent, setInputContent] = useState("")
-  const username = useSelector((state: RootState) => state.username.value)
-  
-  const dispatch = useDispatch()
+  const username = useAppSelector((state) => state.username.value)
+  const dispatch = useAppDispatch()
 
   function submitForm(e: React.FormEvent) {
     e.preventDefault()
@@ -47,8 +44,8 @@ function CreatePostCard() {
           placeholder="Hello world"
           type="text"
           value={inputTitle}
-          onChange={(e) => {            
-            setInputTitle(e.target.value)            
+          onChange={(e) => {
+            setInputTitle(e.target.value)
           }}
         />
         <label
@@ -65,14 +62,14 @@ function CreatePostCard() {
           placeholder="Content here"
           value={inputContent}
           onChange={(e) => {
-            setInputContent(`${e.target.value}`)           
+            setInputContent(`${e.target.value}`)
           }}
         />
         <button
           className="self-end mt-4 sm:mt-6 mb-2 bg-black hover:bg-neutral-800 transition-all text-white font-bold text-xs sm:text-sm md:text-base px-5 sm:px-7 py-1 disabled:bg-neutral-300"
           type="submit"
           disabled={!inputTitle || !inputContent}
-          onClick={() => {            
+          onClick={() => {
             createPost(username, inputTitle, inputContent)
             getPosts().then((res) => {
               const data = res.results

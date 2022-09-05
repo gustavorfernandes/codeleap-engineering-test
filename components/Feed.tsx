@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import PostCard from "./PostCard"
 import { IPost } from "../types/IPost"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../redux/app/store"
+import { useAppSelector, useAppDispatch } from "../redux/app/hooks"
 import { orderByDate, setPostList } from "../redux/app/slices/postListSlice"
 import EditModal from "./EditModal"
 import DeleteAlert from "./DeleteAlert"
@@ -10,7 +9,7 @@ import getPosts from "../actions/getPosts"
 import { useEffect } from "react"
 
 function Feed() {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   useEffect(() => {
     getPosts().then((res) => {
@@ -20,7 +19,7 @@ function Feed() {
     dispatch(orderByDate())    
   })
 
-  const postList = useSelector((state: RootState) => state.postList.value)
+  const postList = useAppSelector((state) => state.postList.value)
 
   return (
     <>

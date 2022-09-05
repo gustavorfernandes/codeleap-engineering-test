@@ -1,10 +1,10 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useDispatch } from "react-redux"
 import CreatePostCard from '../components/CreatePostCard'
 import Header from '../components/Header'
 import Feed from '../components/Feed'
 import getPosts from '../actions/getPosts'
+import { useAppDispatch } from "../redux/app/hooks"
 import { setPostList } from '../redux/app/slices/postListSlice'
 
 export async function getServerSideProps() {
@@ -18,7 +18,7 @@ export async function getServerSideProps() {
 
 const Home: NextPage = (props: any) => {
   const data = props.results
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   dispatch(setPostList(data))
 

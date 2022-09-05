@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { IPost } from "../types/IPost"
 import { formatDistanceToNow } from "date-fns"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../redux/app/store"
+import { useAppSelector, useAppDispatch } from "../redux/app/hooks"
 import { setEditModal } from "../redux/app/slices/editModalSlice"
 import { setDeleteAlert } from "../redux/app/slices/deleteAlertSlice"
 import { setPostID } from "../redux/app/slices/postIDSlice"
@@ -11,9 +10,8 @@ import { setPostContent } from "../redux/app/slices/postContentSlice"
 
 function PostCard(post: IPost) {
   const datePost = new Date(post.created_datetime)
-  const username = useSelector((state: RootState) => state.username.value)
-
-  const dispatch = useDispatch()
+  const username = useAppSelector((state) => state.username.value)
+  const dispatch = useAppDispatch()
 
   return (
     <>
