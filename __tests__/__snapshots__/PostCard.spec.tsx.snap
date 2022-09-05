@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post card component The component must render correctly 1`] = `
+<div>
+  <div
+    class="w-11/12 flex flex-col font-roboto border border-neutral-300 mb-8 sm:mb-10 md:mb-12"
+  >
+    <div
+      class="w-full flex items-center justify-between bg-black py-2 px-4 sm:py-6 sm:px-8 sm:h-16 md:h-[4.375rem] text-white font-bold text-sm sm:text-xl md:text-[22px]"
+    >
+      <h2 />
+      <div
+        class="flex items-center gap-4 justify-between hidden"
+      >
+        <button>
+          <img
+            alt="Delete"
+            class="w-[12px] sm:w-[15px] md:w-[17.5px]"
+            src="/images/delete-icon.png"
+          />
+        </button>
+        <button>
+          <img
+            alt="Edit"
+            class="w-[18px] sm:w-[20.5px] md:w-[22.5px]"
+            src="/images/edit-icon.png"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      class="w-full flex flex-col gap-3 p-3 sm:p-6 md:p-8"
+    >
+      <div
+        class="w-full flex justify-between items-center"
+      >
+        <span
+          class="font-bold text-xs sm:text-base md:text-[18px] text-neutral-400 sm:mb-1"
+        >
+          @null
+        </span>
+        <span
+          class="text-xs sm:text-base md:text-[18px] text-neutral-400"
+        >
+          over 52 years ago
+        </span>
+      </div>
+      <div
+        class="text-xs sm:text-base md:text-[18px] whitespace-pre-wrap"
+      />
+    </div>
+  </div>
+</div>
+`;

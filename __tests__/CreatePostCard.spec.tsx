@@ -1,14 +1,13 @@
-import React from "react"
-import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Provider } from "react-redux"
-import store from "../redux/app/store"
+import { makeStore } from "../redux/app/store"
 import CreatePostCard from "../components/CreatePostCard"
 
 describe("Create post card component", () => {
   it("When one or both inputs are empty, the create button must be disabled", () => {
+    const store = makeStore()
     render(
-      <Provider store={store} >
+      <Provider store={store}>
         <CreatePostCard />
       </Provider>
     )
@@ -32,21 +31,12 @@ describe("Create post card component", () => {
     fireEvent.change(inputTitle, { target: { value: "" } })
     fireEvent.change(inputContent, { target: { value: "value" } })
     expect(button).toBeDisabled()
-  })
-
-  it("When the create button is pressed, must send a post request to the API", () => {
-    render(
-      <Provider store={store} >
-        <CreatePostCard />
-      </Provider>
-    )
-
-    // Test here
-  }) 
+  })  
 
   it("The component must render correctly", () => {
+    const store = makeStore()    
     const { container } = render(
-      <Provider store={store} >
+      <Provider store={store}>
         <CreatePostCard />
       </Provider>
     )
