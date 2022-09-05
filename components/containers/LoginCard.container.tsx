@@ -1,6 +1,6 @@
 import { Dispatch } from "@reduxjs/toolkit"
 import { connect } from "react-redux"
-import { setUsername } from "redux/app/slices/usernameSlice"
+import { setUsername } from "../../redux/app/slices/usernameSlice"
 import LoginCard from "../LoginCard"
 
 const mapDispatchToProps = (dispatch: Dispatch) => {
@@ -10,3 +10,5 @@ const mapDispatchToProps = (dispatch: Dispatch) => {
 }
 
 export default connect(null, mapDispatchToProps)(LoginCard)
+
+export type ISetUsername = ReturnType<typeof mapDispatchToProps>

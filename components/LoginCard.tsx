@@ -1,7 +1,8 @@
 import Link from "next/link"
 import React, { useState } from "react"
+import { ISetUsername } from "./containers/LoginCard.container"
 
-function LoginCard({ setUsername }: any) {
+function LoginCard({ setUsername }: ISetUsername) {
   const [inputValue, setInputValue] = useState("")
 
   function login(e: React.FormEvent) {
