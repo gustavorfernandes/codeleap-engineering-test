@@ -1,9 +1,12 @@
 import Link from "next/link"
 import React, { useState } from "react"
-import { ISetUsername } from "./containers/LoginCard.container"
+import { useDispatch } from "react-redux"
+import { setUsername } from "../redux/app/slices/usernameSlice"
 
-function LoginCard({ setUsername }: ISetUsername) {
+function LoginCard() {
   const [inputValue, setInputValue] = useState("")
+
+  const dispatch = useDispatch()
 
   function login(e: React.FormEvent) {
     e.preventDefault()
@@ -49,7 +52,7 @@ function LoginCard({ setUsername }: ISetUsername) {
                 type="submit"
                 disabled={!inputValue}
                 onClick={() => {
-                  setUsername(inputValue)
+                  dispatch(setUsername(inputValue))
                 }}
               >
                 ENTER
