@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Provider } from "react-redux"
-import { store } from "../redux/app/store"
+import store from "../redux/app/store"
 import CreatePostCard from "../components/CreatePostCard"
 
 describe("Create post card component", () => {

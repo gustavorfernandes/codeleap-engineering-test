@@ -24,7 +24,9 @@ export function makeStore() {
 const store = makeStore()
 
 export type RootState = ReturnType<typeof store.getState>
+
 export type AppDispatch = ReturnType<typeof store.dispatch>
+
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,

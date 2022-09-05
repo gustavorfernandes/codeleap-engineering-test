@@ -2,7 +2,7 @@ import React from "react"
 import "@testing-library/jest-dom"
 import { fireEvent, render, screen } from "@testing-library/react"
 import { Provider } from "react-redux"
-import { store } from "../redux/app/store"
+import store from "../redux/app/store"
 import EditModal from "../components/EditModal"
 
 describe("Edit modal component", () => {
